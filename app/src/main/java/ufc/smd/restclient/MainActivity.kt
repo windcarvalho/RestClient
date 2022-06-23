@@ -64,7 +64,8 @@ class MainActivity : AppCompatActivity() {
             return BitmapFactory.decodeStream(bufferedInputStream)
         } catch (e: IOException) {
             e.printStackTrace()
-            Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG).show()
+            Log.v("PDM", "Erro de comunicação: "+e.message)
+            //Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG).show()
         }
         return null
     }
@@ -74,8 +75,9 @@ class MainActivity : AppCompatActivity() {
             return URL(string)
         } catch (e: MalformedURLException) {
             e.printStackTrace()
+            return null
         }
-        return null
+
     }
     fun baixarImagemCo(v: View)= runBlocking{
         launch {
@@ -118,6 +120,7 @@ class MainActivity : AppCompatActivity() {
                 BitmapFactory.decodeStream(bufferedInputStream)
             } catch (e: IOException) {
                 e.printStackTrace()
+                Log.v("PDM", "Erro de comunicação: "+e.message)
               //  Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG).show()
                 null
             }
@@ -135,7 +138,7 @@ class MainActivity : AppCompatActivity() {
             return BitmapFactory.decodeStream(bufferedInputStream)
         } catch (e: IOException) {
             e.printStackTrace()
-            Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG).show()
+            //Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG).show()
         }
         return null
     }

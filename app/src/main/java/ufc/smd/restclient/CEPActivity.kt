@@ -38,7 +38,7 @@ class CEPActivity : AppCompatActivity() {
             val retorno =mLoad("https://viacep.com.br/ws/" + cep + "/json/")
 
             Log.v("PDM", "o serviço respondeu")
-            //Log.v("pdm","retorno: "+ (retorno?.readText() ?:"vazio" ))
+            Log.v("pdm","retorno: "+ (retorno?.readText() ?:"vazio" ))
 
             if(retorno!=null){
                 val jsonObject = JSONObject(retorno.readText())
@@ -82,7 +82,6 @@ class CEPActivity : AppCompatActivity() {
         } catch (e: IOException) {
             e.printStackTrace()
             Log.v("PDM", "Erro de comunicação: "+e.message)
-
 
         }
         return null

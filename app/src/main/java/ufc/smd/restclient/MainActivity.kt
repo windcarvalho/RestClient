@@ -171,4 +171,22 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+    fun executeAsThreads(v: View){
+        Log.v("PDM Thread", "Início - Thread: ${Thread.currentThread().name}")
+        val thread1 = Thread {
+            for (i in 1..100) {
+                Log.v("PDM Thread", "Thread1: $i")
+                Thread.sleep(10)
+            } }
+        val thread2 = Thread {
+            for (i in 1..100) {
+                Log.v("PDM Thread", "Thread2: $i")
+                Thread.sleep(10)
+            }   }
+        thread1.start()
+        thread2.start()
+        for (i in 1..100)
+            Log.v("PDM Thread", "Código Main: $i")
+        Log.v("PDM Thread", "Fim - Thread: ${Thread.currentThread().name}")
+    }
 }

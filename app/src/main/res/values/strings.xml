@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RestClient</string>
+    <string name="title_activity_rest_client_compose">Downlaod Image Compose</string>
 </resources>
